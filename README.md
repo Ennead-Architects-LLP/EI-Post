@@ -1,6 +1,6 @@
-# EI-Post
+# Yoga Wellness Session
 
-A modern, responsive landing page for EI-Post - Your Digital Communication Hub. Built with HTML5, CSS3, and JavaScript, featuring beautiful animations, mobile-first design, and PWA capabilities.
+A modern, responsive landing page for a Yoga Wellness Session - Mind, Body & Soul. Built with HTML5, CSS3, and JavaScript, featuring beautiful animations, mobile-first design, and PWA capabilities. Includes session details, benefits, and a comprehensive signup form.
 
 ## 🌟 Features
 
@@ -8,7 +8,8 @@ A modern, responsive landing page for EI-Post - Your Digital Communication Hub. 
 - **Responsive Layout**: Fully responsive design that works on all devices
 - **Interactive Elements**: Smooth scrolling, hover effects, and button animations
 - **Mobile Navigation**: Hamburger menu for mobile devices
-- **Contact Form**: Functional contact form with validation
+- **Signup Form**: Comprehensive registration form with time slot selection
+- **Session Details**: Clear presentation of yoga session information
 - **PWA Ready**: Service worker and manifest for Progressive Web App capabilities
 - **Performance Optimized**: Debounced scroll events and optimized animations
 - **Accessibility**: Keyboard navigation and screen reader friendly
@@ -16,15 +17,15 @@ A modern, responsive landing page for EI-Post - Your Digital Communication Hub. 
 
 ## 🚀 Live Demo
 
-Visit the live website: [EI-Post Landing Page](https://your-username.github.io/EI-Post/)
+Visit the live website: [Yoga Wellness Session](https://ennead-architects-llp.github.io/EI-Post/)
 
 ## 📁 Project Structure
 
 ```
 EI-Post/
-├── index.html          # Main HTML file
+├── index.html          # Main HTML file with yoga session content
 ├── styles.css          # CSS styles and animations
-├── script.js           # JavaScript functionality
+├── script.js           # JavaScript functionality with signup form
 ├── sw.js              # Service worker for PWA
 ├── manifest.json      # Web app manifest
 ├── README.md          # Project documentation
@@ -40,12 +41,13 @@ EI-Post/
 - **Google Fonts**: Inter font family
 - **Service Worker**: Offline functionality and caching
 
-## 📱 PWA Features
+## 🧘‍♀️ Session Features
 
-- **Offline Support**: Works without internet connection
-- **Installable**: Can be installed as a native app
-- **App-like Experience**: Full-screen mode and native feel
-- **Caching**: Intelligent caching for better performance
+- **Session Details**: Clear presentation of date, time, and location
+- **Time Slot Selection**: Multiple time slots for participant convenience
+- **Experience Levels**: Accommodates beginners to advanced practitioners
+- **Special Requirements**: Space for health considerations and special needs
+- **Comprehensive Form**: Complete registration with validation
 
 ## 🎨 Design Features
 
@@ -109,6 +111,14 @@ EI-Post/
 
 ## 📋 Customization
 
+### Session Information
+Update the session details in `index.html`:
+- Date and time
+- Location and venue
+- Pricing information
+- Session capacity
+- Contact information
+
 ### Colors
 The main color scheme can be modified in `styles.css`:
 ```css
@@ -122,10 +132,10 @@ The main color scheme can be modified in `styles.css`:
 ```
 
 ### Content
-- Update text content in `index.html`
-- Modify contact information
-- Change feature descriptions
-- Update social media links
+- Update session details in `index.html`
+- Modify yoga session descriptions
+- Change time slot options
+- Update contact information
 
 ### Styling
 - Modify `styles.css` for design changes
@@ -169,9 +179,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-- **Email**: hello@ei-post.com
-- **Website**: [EI-Post](https://your-username.github.io/EI-Post/)
-- **GitHub**: [@your-username](https://github.com/your-username)
+- **Email**: info@yogawellness.com
+- **Phone**: +1 (555) 123-4567
+- **Location**: Serenity Yoga Studio, 123 Wellness Street, Downtown
+- **Website**: [Yoga Wellness Session](https://ennead-architects-llp.github.io/EI-Post/)
 
 ---
 

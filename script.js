@@ -55,7 +55,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.feature-card, .about-text, .contact-info, .contact-form');
+    const animateElements = document.querySelectorAll('.session-card, .benefits-text, .signup-info, .signup-form');
     animateElements.forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
@@ -63,20 +63,22 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Form handling
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+const signupForm = document.querySelector('.signup-form');
+if (signupForm) {
+    signupForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
         // Get form data
-        const formData = new FormData(this);
-        const name = this.querySelector('input[type="text"]').value;
-        const email = this.querySelector('input[type="email"]').value;
-        const message = this.querySelector('textarea').value;
+        const name = this.querySelector('#name').value;
+        const email = this.querySelector('#email').value;
+        const phone = this.querySelector('#phone').value;
+        const experience = this.querySelector('#experience').value;
+        const timeSlot = this.querySelector('#timeSlot').value;
+        const specialNeeds = this.querySelector('#specialNeeds').value;
         
         // Simple validation
-        if (!name || !email || !message) {
-            showNotification('Please fill in all fields', 'error');
+        if (!name || !email || !timeSlot) {
+            showNotification('Please fill in all required fields (Name, Email, and Time Slot)', 'error');
             return;
         }
         
@@ -88,11 +90,11 @@ if (contactForm) {
         // Simulate form submission
         const submitBtn = this.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
+        submitBtn.textContent = 'Reserving...';
         submitBtn.disabled = true;
         
         setTimeout(() => {
-            showNotification('Thank you! Your message has been sent successfully.', 'success');
+            showNotification(`Thank you ${name}! Your spot has been reserved for ${timeSlot}. We'll send confirmation details to ${email}.`, 'success');
             this.reset();
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
