@@ -8,7 +8,7 @@
 :root {
     --primary-color: #88a8a5;
     --secondary-color: #c0bad4;
-    --accent-color: #f4f1de;
+    --accent-color: #7a9e8b;
     --text-color: #2d3748;
     --light-text: #718096;
     --background-color: #fafafa;
@@ -19,7 +19,7 @@
     --transition: all 0.3s ease;
     --gradient-primary: linear-gradient(135deg, #88a8a5 0%, #c0bad4 100%);
     --gradient-hero: linear-gradient(135deg, #88a8a5 0%, #c0bad4 100%);
-    --gradient-accent: linear-gradient(135deg, #f4f1de 0%, #e8e4d9 100%);
+    --gradient-accent: linear-gradient(135deg, #7a9e8b 0%, #88a8a5 100%);
 }
 
 /* Typography */
