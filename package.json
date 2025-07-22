@@ -1,0 +1,23 @@
+{
+  "name": "yoga-wellness-session",
+  "version": "1.0.0",
+  "description": "A beautiful landing page for Yoga Wellness Session with signup form",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx serve .",
+    "build": "echo 'Static site - no build step required'",
+    "deploy": "echo 'Deploy via GitHub Actions'"
+  },
+  "keywords": [
+    "yoga",
+    "wellness",
+    "landing-page",
+    "static-site",
+    "pwa"
+  ],
+  "author": "Yoga Wellness Team",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+} 
