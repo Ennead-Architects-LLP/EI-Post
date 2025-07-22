@@ -87,9 +87,9 @@ if (signupForm) {
         submitBtn.textContent = 'Submitting...';
         submitBtn.disabled = true;
         
-        // Form will redirect to Google Sheets
-        // The form action is set to the Google Sheets URL
-        showNotification('Redirecting to RSVP form...', 'info');
+        // Form will submit to Formspree
+        // Success/error handling will be done by Formspree redirect
+        showNotification('Submitting your RSVP...', 'info');
     });
 }
 
