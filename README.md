@@ -1,6 +1,6 @@
-# Yoga Wellness Session
+# Ennead Architects - Yoga Wellness Session
 
-A modern, responsive landing page for a Yoga Wellness Session - Mind, Body & Soul. Built with HTML5, CSS3, and JavaScript, featuring beautiful animations, mobile-first design, and PWA capabilities. Includes session details, benefits, and a comprehensive signup form.
+A modern, responsive landing page for Ennead Architects Yoga Wellness Session - Mind, Body & Soul. Built with HTML5, CSS3, and JavaScript, featuring beautiful animations, mobile-first design, and PWA capabilities. Includes session details, benefits, and a comprehensive signup form.
 
 ## 🌟 Features
 
@@ -17,7 +17,7 @@ A modern, responsive landing page for a Yoga Wellness Session - Mind, Body & Sou
 
 ## 🚀 Live Demo
 
-Visit the live website: [Yoga Wellness Session](https://ennead-architects-llp.github.io/EI-Post/)
+Visit the live website: [Ennead Architects Yoga Wellness Session](https://ennead-architects-llp.github.io/EI-Post/)
 
 ## 📁 Project Structure
 
@@ -179,10 +179,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-- **Email**: info@yogawellness.com
+- **Email**: info@enneadarchitects.com
 - **Phone**: +1 (555) 123-4567
-- **Location**: Serenity Yoga Studio, 123 Wellness Street, Downtown
-- **Website**: [Yoga Wellness Session](https://ennead-architects-llp.github.io/EI-Post/)
+- **Location**: Ennead Architects Studio, 123 Wellness Street, Downtown
+- **Website**: [Ennead Architects Yoga Wellness Session](https://ennead-architects-llp.github.io/EI-Post/)
 
 ---
 

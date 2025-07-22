@@ -1,7 +1,7 @@
 {
-  "name": "yoga-wellness-session",
+  "name": "ennead-architects-yoga-session",
   "version": "1.0.0",
-  "description": "A beautiful landing page for Yoga Wellness Session with signup form",
+  "description": "A beautiful landing page for Ennead Architects Yoga Wellness Session with signup form",
   "main": "index.html",
   "scripts": {
     "start": "python -m http.server 8000",
@@ -12,11 +12,12 @@
   "keywords": [
     "yoga",
     "wellness",
+    "ennead-architects",
     "landing-page",
     "static-site",
     "pwa"
   ],
-  "author": "Yoga Wellness Team",
+  "author": "Ennead Architects",
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {}
