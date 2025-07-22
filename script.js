@@ -97,7 +97,7 @@ if (signupForm) {
         // Get form data for validation
         const name = this.querySelector('#entry\\.1874270200').value;
         const email = this.querySelector('#entry\\.381985886').value;
-        const timeSlot = this.querySelector('#entry\\.1284143545').value;
+        const timeSlot = this.querySelector('#entry\\.1424638179').value;
         
         // Simple validation
         if (!name || !email || !timeSlot) {
