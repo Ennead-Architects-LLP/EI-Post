@@ -163,7 +163,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Latest Update**: Transformed from Yoga Wellness to Sound Bath & Healing Session
 - **Design Enhancement**: Added elegant typography and sophisticated color palette
-- **Content Update**: Updated to reflect August 12, 2025 session with two time slots
+- **Content Update**: Updated to reflect August 13, 2025 session with two time slots
 - **Form Integration**: Connected RSVP form to Google Sheets for data collection
 - **PWA Enhancement**: Updated manifest and icons for sound bath theme
 
