@@ -60,23 +60,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Form validation and submission
-const signupForm = document.querySelector('.signup-form');
+const signupForm = document.querySelector('#rsvpForm');
 if (signupForm) {
     signupForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent default form submission
+        
         // Get form data for validation
-        const name = this.querySelector('#name').value;
-        const email = this.querySelector('#email').value;
-        const timeSlot = this.querySelector('#timeSlot').value;
+        const name = this.querySelector('#entry\\.1234567890').value;
+        const email = this.querySelector('#entry\\.0987654321').value;
+        const timeSlot = this.querySelector('#entry\\.2222222222').value;
         
         // Simple validation
         if (!name || !email || !timeSlot) {
-            e.preventDefault();
             showNotification('Please fill in all required fields (Name, Email, and Session Time)', 'error');
             return;
         }
         
         if (!isValidEmail(email)) {
-            e.preventDefault();
             showNotification('Please enter a valid email address', 'error');
             return;
         }
@@ -87,12 +87,51 @@ if (signupForm) {
         submitBtn.textContent = 'Submitting...';
         submitBtn.disabled = true;
         
-        // Form will submit to Google Forms
-        // Google Forms will handle the submission and redirect
-        showNotification('Submitting your RSVP to Google Forms...', 'info');
+        // Prepare form data for Google Forms
+        const formData = new FormData(this);
         
-        // Allow the form to submit naturally to Google Forms
-        // Google Forms will open in a new tab and show confirmation
+        // Google Forms submission URL
+        const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdGKE5oAZI6VWfpcTx_0tka-MzYerKny4fhAEZUeI2Bi2QAIA/formResponse';
+        
+        // Create a hidden iframe to submit to Google Forms
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+        
+        // Create a form to submit to the iframe
+        const hiddenForm = document.createElement('form');
+        hiddenForm.method = 'POST';
+        hiddenForm.action = googleFormUrl;
+        hiddenForm.target = iframe.name;
+        
+        // Add form data to hidden form
+        for (let [key, value] of formData.entries()) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = value;
+            hiddenForm.appendChild(input);
+        }
+        
+        // Submit the form
+        document.body.appendChild(hiddenForm);
+        hiddenForm.submit();
+        
+        // Clean up
+        setTimeout(() => {
+            document.body.removeChild(hiddenForm);
+            document.body.removeChild(iframe);
+        }, 1000);
+        
+        // Show success message
+        showNotification('Thank you! Your RSVP has been submitted successfully.', 'success');
+        
+        // Reset form
+        this.reset();
+        
+        // Reset button
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
     });
 }
 
