@@ -264,9 +264,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (matSelect) {
         matSelect.addEventListener('change', () => {
             const selectedOption = matSelect.options[matSelect.selectedIndex];
-            if (selectedOption.value === 'need-provided') {
-                showNotification('We\'ll have a mat ready for you!', 'info');
-            }
+                    if (selectedOption.value === 'need-provided') {
+            showNotification('We\'ll have a yoga mat ready for you!', 'info');
+        }
         });
     }
 });
