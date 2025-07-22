@@ -962,14 +962,32 @@ h1, h2, h3, h4, h5, h6 {
 .footer {
     background: var(--gradient-primary);
     color: white;
-    padding: 4rem 0 2rem;
+    padding: 5rem 0 2rem;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(136, 168, 165, 0.95) 0%, rgba(192, 186, 212, 0.95) 100%);
+    z-index: 1;
+}
+
+.footer .container {
+    position: relative;
+    z-index: 2;
 }
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
     margin-bottom: 3rem;
+    align-items: start;
 }
 
 .footer-logo {
@@ -977,9 +995,19 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     gap: 0.5rem;
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.footer-description {
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
 }
 
 .footer-logo i {
@@ -1026,25 +1054,54 @@ h1, h2, h3, h4, h5, h6 {
 
 .social-links {
     display: flex;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
 .social-links a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 50%;
     color: white;
     text-decoration: none;
     transition: var(--transition);
+    font-size: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .social-links a:hover {
     background: var(--accent-color);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.links-section h3,
+.contact-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    font-weight: 600;
+}
+
+.links-section ul li,
+.contact-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.links-section ul li a {
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.contact-section ul li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.05rem;
+    font-weight: 500;
 }
 
 .footer-bottom {
@@ -1130,7 +1187,23 @@ h1, h2, h3, h4, h5, h6 {
 
     .footer-content {
         grid-template-columns: 1fr;
+        gap: 3rem;
         text-align: center;
+    }
+    
+    .footer-logo {
+        justify-content: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .links-section ul,
+    .contact-section ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 
