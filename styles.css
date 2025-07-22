@@ -6,8 +6,8 @@
 }
 
 :root {
-    --primary-color: #4a7c59;
-    --secondary-color: #9b6b9b;
+    --primary-color: #88a8a5;
+    --secondary-color: #c0bad4;
     --accent-color: #f4f1de;
     --text-color: #2d3748;
     --light-text: #718096;
@@ -17,8 +17,8 @@
     --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
     --border-radius: 12px;
     --transition: all 0.3s ease;
-    --gradient-primary: linear-gradient(135deg, #4a7c59 0%, #9b6b9b 100%);
-    --gradient-hero: linear-gradient(135deg, #4a7c59 0%, #9b6b9b 100%);
+    --gradient-primary: linear-gradient(135deg, #88a8a5 0%, #c0bad4 100%);
+    --gradient-hero: linear-gradient(135deg, #88a8a5 0%, #c0bad4 100%);
     --gradient-accent: linear-gradient(135deg, #f4f1de 0%, #e8e4d9 100%);
 }
 
