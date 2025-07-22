@@ -181,7 +181,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Email**: info@enneadarchitects.com
 - **Phone**: +1 (555) 123-4567
-- **Location**: Ennead Architects Studio, 123 Wellness Street, Downtown
+- **Location**: Ennead Architects Studio at bm, 123 Wellness Street, Downtown
 - **Website**: [Ennead Architects Yoga Wellness Session](https://ennead-architects-llp.github.io/EI-Post/)
 
 ---
