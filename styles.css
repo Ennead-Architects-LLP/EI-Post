@@ -506,6 +506,50 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.8;
 }
 
+.session-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(44, 85, 48, 0.1);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    text-align: center;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.info-card i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.info-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.info-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
 .benefits-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -589,9 +633,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .signup-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    display: flex;
+    justify-content: center;
     align-items: start;
 }
 
@@ -643,6 +686,8 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-lg);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(44, 85, 48, 0.1);
+    max-width: 600px;
+    width: 100%;
 }
 
 .signup-form h3 {
@@ -841,6 +886,11 @@ h1, h2, h3, h4, h5, h6 {
     .benefits-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    .session-info {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .benefits-stats {

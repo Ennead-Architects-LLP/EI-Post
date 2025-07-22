@@ -55,7 +55,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.session-card, .benefits-text, .signup-info, .signup-form');
+    const animateElements = document.querySelectorAll('.benefits-text, .info-card, .signup-form');
     animateElements.forEach(el => observer.observe(el));
 });
 
