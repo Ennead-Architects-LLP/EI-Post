@@ -57,6 +57,35 @@ const observer = new IntersectionObserver((entries) => {
 document.addEventListener('DOMContentLoaded', () => {
     const animateElements = document.querySelectorAll('.benefits-text, .info-card, .signup-form');
     animateElements.forEach(el => observer.observe(el));
+    
+    // Handle poster video autoplay and slow motion
+    const posterVideo = document.querySelector('.poster-video');
+    if (posterVideo) {
+        // Set playback rate to 10% (0.1x speed)
+        posterVideo.playbackRate = 0.1;
+        
+        // Ensure autoplay works
+        posterVideo.addEventListener('loadedmetadata', () => {
+            posterVideo.play().catch(e => {
+                console.log('Autoplay prevented:', e);
+                // Add a play button if autoplay fails
+                const playButton = document.createElement('button');
+                playButton.textContent = 'Click to Play Video';
+                playButton.className = 'btn btn-primary';
+                playButton.style.marginTop = '1rem';
+                playButton.onclick = () => {
+                    posterVideo.play();
+                    playButton.style.display = 'none';
+                };
+                posterVideo.parentNode.appendChild(playButton);
+            });
+        });
+        
+        // Maintain slow speed when video restarts
+        posterVideo.addEventListener('play', () => {
+            posterVideo.playbackRate = 0.1;
+        });
+    }
 });
 
 // Form validation and submission
