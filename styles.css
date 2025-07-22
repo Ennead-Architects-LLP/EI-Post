@@ -347,7 +347,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-lg);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(44, 85, 48, 0.1);
-    animation: float 60s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
     transition: var(--transition);
 }
 
@@ -436,7 +436,7 @@ h1, h2, h3, h4, h5, h6 {
 .session-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
-    animation: gentle-pulse 20s ease-in-out infinite;
+    animation: gentle-pulse 2s ease-in-out infinite;
 }
 
 .session-icon {
@@ -598,7 +598,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-lg);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(44, 85, 48, 0.1);
-    animation: float 60s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
 }
 
 .benefits-image .floating-card:nth-child(1) {
@@ -960,7 +960,7 @@ html {
 }
 
 .fade-in-up {
-    animation: fadeInUp 6s ease-out;
+    animation: fadeInUp 0.8s ease-out;
 }
 
 /* Poster Page Styles */
