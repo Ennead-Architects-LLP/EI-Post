@@ -87,9 +87,12 @@ if (signupForm) {
         submitBtn.textContent = 'Submitting...';
         submitBtn.disabled = true;
         
-        // Form will submit to Formspree
-        // Success/error handling will be done by Formspree redirect
-        showNotification('Submitting your RSVP...', 'info');
+        // Form will submit to Google Forms
+        // Google Forms will handle the submission and redirect
+        showNotification('Submitting your RSVP to Google Forms...', 'info');
+        
+        // Allow the form to submit naturally to Google Forms
+        // Google Forms will open in a new tab and show confirmation
     });
 }
 
