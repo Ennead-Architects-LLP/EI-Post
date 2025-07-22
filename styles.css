@@ -6,9 +6,9 @@
 }
 
 :root {
-    --primary-color: #2c5530;
-    --secondary-color: #4a7c59;
-    --accent-color: #8fbc8f;
+    --primary-color: #4a7c59;
+    --secondary-color: #9b6b9b;
+    --accent-color: #f4f1de;
     --text-color: #2d3748;
     --light-text: #718096;
     --background-color: #fafafa;
@@ -17,6 +17,9 @@
     --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
     --border-radius: 12px;
     --transition: all 0.3s ease;
+    --gradient-primary: linear-gradient(135deg, #4a7c59 0%, #9b6b9b 100%);
+    --gradient-hero: linear-gradient(135deg, #4a7c59 0%, #9b6b9b 100%);
+    --gradient-accent: linear-gradient(135deg, #f4f1de 0%, #e8e4d9 100%);
 }
 
 /* Typography */
@@ -46,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.5rem;
     font-weight: 400;
     font-style: italic;
-    color: var(--light-text);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .section-title {
@@ -157,7 +160,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Section */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 50%, #f0f8f0 100%);
+    background: var(--gradient-hero);
     display: flex;
     align-items: center;
     position: relative;
@@ -193,7 +196,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-title {
     margin-bottom: 1.5rem;
-    color: var(--primary-color);
+    color: white;
 }
 
 .highlight {
@@ -216,13 +219,14 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     gap: 0.75rem;
     padding: 1rem 1.5rem;
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(44, 85, 48, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: var(--border-radius);
     backdrop-filter: blur(10px);
     transition: var(--transition);
     font-family: 'Inter', sans-serif;
     font-weight: 500;
+    color: var(--primary-color);
 }
 
 .highlight-item:hover {
@@ -237,8 +241,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .extras-highlight {
-    background: linear-gradient(135deg, rgba(44, 85, 48, 0.1), rgba(74, 124, 89, 0.1)) !important;
-    border: 2px solid rgba(44, 85, 48, 0.2) !important;
+    background: linear-gradient(135deg, rgba(244, 241, 222, 0.9), rgba(232, 228, 217, 0.9)) !important;
+    border: 2px solid rgba(244, 241, 222, 0.8) !important;
     transform: scale(1.05);
 }
 
@@ -265,6 +269,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: var(--border-radius);
     text-align: center;
     transition: var(--transition);
+    color: var(--primary-color);
 }
 
 .time-slot:hover {
@@ -738,7 +743,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background: var(--gradient-primary);
     color: white;
     padding: 4rem 0 2rem;
 }
