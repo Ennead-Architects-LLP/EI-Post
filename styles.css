@@ -739,11 +739,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .spiral-icon {
-    font-size: 3rem;
-    color: var(--accent-color);
+    font-size: 2rem;
+    color: var(--primary-color);
     margin-bottom: 1rem;
-    animation: gentle-spin 8s linear infinite;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    animation: gentle-spin 12s linear infinite;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
 }
 
 .info-card h3 {
