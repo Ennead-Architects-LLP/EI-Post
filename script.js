@@ -122,45 +122,70 @@ if (signupForm) {
         // Google Forms submission URL
         const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdGKE5oAZI6VWfpcTx_0tka-MzYerKny4fhAEZUeI2Bi2QAIA/formResponse';
         
-        // Create a hidden iframe to submit to Google Forms
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
-        
-        // Create a form to submit to the iframe
-        const hiddenForm = document.createElement('form');
-        hiddenForm.method = 'POST';
-        hiddenForm.action = googleFormUrl;
-        hiddenForm.target = iframe.name;
-        
-        // Add form data to hidden form
+        // Use fetch API for faster submission
+        const formDataObj = {};
         for (let [key, value] of formData.entries()) {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = key;
-            input.value = value;
-            hiddenForm.appendChild(input);
+            formDataObj[key] = value;
         }
         
-        // Submit the form
-        document.body.appendChild(hiddenForm);
-        hiddenForm.submit();
+        // Submit using fetch with timeout
+        const submitPromise = fetch(googleFormUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(formDataObj),
+            mode: 'no-cors' // Required for Google Forms
+        });
         
-        // Clean up
-        setTimeout(() => {
-            document.body.removeChild(hiddenForm);
-            document.body.removeChild(iframe);
-        }, 1000);
+        // Set a timeout for the submission
+        const timeoutPromise = new Promise((_, reject) => {
+            setTimeout(() => reject(new Error('Submission timeout')), 5000);
+        });
         
-        // Show success message
-        showNotification('Thank you! Your RSVP has been submitted successfully.', 'success');
+        // Race between submission and timeout
+        Promise.race([submitPromise, timeoutPromise])
+            .then(() => {
+                // Success - show message immediately
+                showNotification('Thank you! Your RSVP has been submitted successfully.', 'success');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            })
+            .catch((error) => {
+                // Fallback to iframe method if fetch fails
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+                
+                const hiddenForm = document.createElement('form');
+                hiddenForm.method = 'POST';
+                hiddenForm.action = googleFormUrl;
+                hiddenForm.target = iframe.name;
+                
+                for (let [key, value] of formData.entries()) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = value;
+                    hiddenForm.appendChild(input);
+                }
+                
+                document.body.appendChild(hiddenForm);
+                hiddenForm.submit();
+                
+                setTimeout(() => {
+                    document.body.removeChild(hiddenForm);
+                    document.body.removeChild(iframe);
+                }, 500);
+                
+                showNotification('Thank you! Your RSVP has been submitted successfully.', 'success');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
         
-        // Reset form
-        this.reset();
-        
-        // Reset button
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
+
     });
 }
 

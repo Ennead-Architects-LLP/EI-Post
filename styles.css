@@ -689,10 +689,11 @@ h1, h2, h3, h4, h5, h6 {
     padding: 3rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-lg);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(44, 85, 48, 0.1);
     max-width: 600px;
     width: 100%;
+    will-change: transform;
 }
 
 .signup-form h3 {
@@ -733,7 +734,8 @@ h1, h2, h3, h4, h5, h6 {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(143, 188, 143, 0.1);
+    box-shadow: 0 0 0 2px rgba(143, 188, 143, 0.1);
+    transform: translateY(-1px);
 }
 
 .form-group textarea {
