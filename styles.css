@@ -738,6 +738,14 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
 }
 
+.spiral-icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    animation: gentle-spin 8s linear infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
 .info-card h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.3rem;
@@ -826,6 +834,15 @@ h1, h2, h3, h4, h5, h6 {
     50% {
         opacity: 0.95;
         transform: scale(1.02);
+    }
+}
+
+@keyframes gentle-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
 
