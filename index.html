@@ -180,7 +180,7 @@
                         </div>
                     </div>
                 </div>
-                <form class="signup-form">
+                <form class="signup-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                     <h3>Registration Form</h3>
                     <div class="form-group">
                         <label for="name">Full Name *</label>
@@ -204,7 +204,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="timeSlot">Preferred Time Slot</label>
+                        <label for="experience">Preferred Time Slot *</label>
                         <select id="timeSlot" name="timeSlot" required>
                             <option value="">Select your preferred time</option>
                             <option value="9:00-9:30">9:00 AM - 9:30 AM</option>
@@ -217,6 +217,8 @@
                         <label for="specialNeeds">Special Requirements</label>
                         <textarea id="specialNeeds" name="specialNeeds" placeholder="Any special requirements or health considerations..." rows="3"></textarea>
                     </div>
+                    <input type="hidden" name="_subject" value="New Yoga Session Registration">
+                    <input type="hidden" name="_next" value="https://ennead-architects-llp.github.io/EI-Post/">
                     <button type="submit" class="btn btn-primary">Reserve My Spot</button>
                 </form>
             </div>

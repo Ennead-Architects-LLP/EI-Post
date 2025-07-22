@@ -66,39 +66,32 @@ document.addEventListener('DOMContentLoaded', () => {
 const signupForm = document.querySelector('.signup-form');
 if (signupForm) {
     signupForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
+        // Get form data for validation
         const name = this.querySelector('#name').value;
         const email = this.querySelector('#email').value;
-        const phone = this.querySelector('#phone').value;
-        const experience = this.querySelector('#experience').value;
         const timeSlot = this.querySelector('#timeSlot').value;
-        const specialNeeds = this.querySelector('#specialNeeds').value;
         
         // Simple validation
         if (!name || !email || !timeSlot) {
+            e.preventDefault();
             showNotification('Please fill in all required fields (Name, Email, and Time Slot)', 'error');
             return;
         }
         
         if (!isValidEmail(email)) {
+            e.preventDefault();
             showNotification('Please enter a valid email address', 'error');
             return;
         }
         
-        // Simulate form submission
+        // Show loading state
         const submitBtn = this.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'Reserving...';
         submitBtn.disabled = true;
         
-        setTimeout(() => {
-            showNotification(`Thank you ${name}! Your spot has been reserved for ${timeSlot}. We'll send confirmation details to ${email}.`, 'success');
-            this.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }, 2000);
+        // Form will submit to Formspree automatically
+        // Success/error handling will be done by Formspree redirect
     });
 }
 
