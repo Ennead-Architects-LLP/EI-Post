@@ -689,10 +689,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .benefits-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .benefits-text h2 {
@@ -710,10 +712,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .session-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
     margin-top: 3rem;
+    flex-wrap: wrap;
 }
 
 .info-card {
@@ -1163,13 +1166,14 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .benefits-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        max-width: 100%;
+        padding: 0 1rem;
     }
     
     .session-info {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
     }
 
     .benefits-stats {
