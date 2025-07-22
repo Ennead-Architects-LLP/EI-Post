@@ -27,7 +27,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background change on scroll
+// Navbar background on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 100) {
@@ -39,7 +39,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Intersection Observer for fade-in animations
+// Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -48,7 +48,7 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add('fade-in-up');
         }
     });
 }, observerOptions);
@@ -56,13 +56,10 @@ const observer = new IntersectionObserver((entries) => {
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
     const animateElements = document.querySelectorAll('.session-card, .benefits-text, .signup-info, .signup-form');
-    animateElements.forEach(el => {
-        el.classList.add('fade-in');
-        observer.observe(el);
-    });
+    animateElements.forEach(el => observer.observe(el));
 });
 
-// Form handling
+// Form validation and submission
 const signupForm = document.querySelector('.signup-form');
 if (signupForm) {
     signupForm.addEventListener('submit', function(e) {
@@ -74,7 +71,7 @@ if (signupForm) {
         // Simple validation
         if (!name || !email || !timeSlot) {
             e.preventDefault();
-            showNotification('Please fill in all required fields (Name, Email, and Time Slot)', 'error');
+            showNotification('Please fill in all required fields (Name, Email, and Session Time)', 'error');
             return;
         }
         
@@ -87,11 +84,12 @@ if (signupForm) {
         // Show loading state
         const submitBtn = this.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Reserving...';
+        submitBtn.textContent = 'Submitting...';
         submitBtn.disabled = true;
         
-        // Form will submit to Formspree automatically
-        // Success/error handling will be done by Formspree redirect
+        // Form will redirect to Google Sheets
+        // The form action is set to the Google Sheets URL
+        showNotification('Redirecting to RSVP form...', 'info');
     });
 }
 
@@ -108,7 +106,7 @@ function showNotification(message, type = 'info') {
     if (existingNotification) {
         existingNotification.remove();
     }
-    
+
     // Create notification element
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
@@ -118,105 +116,75 @@ function showNotification(message, type = 'info') {
             <button class="notification-close">&times;</button>
         </div>
     `;
-    
+
     // Add styles
     notification.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
-        background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
+        background: ${type === 'error' ? '#ef4444' : type === 'success' ? '#10b981' : '#3b82f6'};
         color: white;
         padding: 1rem 1.5rem;
-        border-radius: 10px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         z-index: 10000;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
         max-width: 400px;
+        animation: slideInRight 0.3s ease-out;
     `;
-    
-    notification.querySelector('.notification-content').style.cssText = `
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-    `;
-    
-    notification.querySelector('.notification-close').style.cssText = `
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0;
-        line-height: 1;
-    `;
-    
+
+    // Add animation keyframes
+    if (!document.querySelector('#notification-styles')) {
+        const style = document.createElement('style');
+        style.id = 'notification-styles';
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            .notification-content {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1rem;
+            }
+            .notification-close {
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+                padding: 0;
+                line-height: 1;
+            }
+            .notification-close:hover {
+                opacity: 0.8;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
     // Add to page
     document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
+
     // Close button functionality
-    notification.querySelector('.notification-close').addEventListener('click', () => {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => notification.remove(), 300);
+    const closeBtn = notification.querySelector('.notification-close');
+    closeBtn.addEventListener('click', () => {
+        notification.remove();
     });
-    
+
     // Auto remove after 5 seconds
     setTimeout(() => {
         if (notification.parentNode) {
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => notification.remove(), 300);
+            notification.remove();
         }
     }, 5000);
 }
-
-// Button click animations
-document.querySelectorAll('.btn').forEach(button => {
-    button.addEventListener('click', function(e) {
-        // Create ripple effect
-        const ripple = document.createElement('span');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
-        ripple.style.cssText = `
-            position: absolute;
-            width: ${size}px;
-            height: ${size}px;
-            left: ${x}px;
-            top: ${y}px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-            pointer-events: none;
-        `;
-        
-        this.style.position = 'relative';
-        this.style.overflow = 'hidden';
-        this.appendChild(ripple);
-        
-        setTimeout(() => ripple.remove(), 600);
-    });
-});
-
-// Add ripple animation to CSS
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes ripple {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
 
 // Parallax effect for hero section
 window.addEventListener('scroll', () => {
@@ -228,132 +196,134 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Counter animation for stats
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat h3');
-    counters.forEach(counter => {
-        const target = parseInt(counter.textContent.replace(/\D/g, ''));
-        const suffix = counter.textContent.replace(/\d/g, '');
-        let current = 0;
-        const increment = target / 100;
-        
-        const updateCounter = () => {
-            if (current < target) {
-                current += increment;
-                counter.textContent = Math.ceil(current) + suffix;
-                requestAnimationFrame(updateCounter);
-            } else {
-                counter.textContent = target + suffix;
-            }
-        };
-        
-        updateCounter();
+// Add floating animation to cards
+document.addEventListener('DOMContentLoaded', () => {
+    const floatingCards = document.querySelectorAll('.floating-card');
+    floatingCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 2}s`;
     });
-}
-
-// Trigger counter animation when stats section is visible
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounters();
-            statsObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-const statsSection = document.querySelector('.about-stats');
-if (statsSection) {
-    statsObserver.observe(statsSection);
-}
-
-// Loading screen
-window.addEventListener('load', () => {
-    const loading = document.querySelector('.loading');
-    if (loading) {
-        loading.classList.add('hidden');
-        setTimeout(() => {
-            loading.remove();
-        }, 500);
-    }
 });
 
-// Add loading screen to HTML if not present
-if (!document.querySelector('.loading')) {
-    const loading = document.createElement('div');
-    loading.className = 'loading';
-    loading.innerHTML = '<div class="spinner"></div>';
-    document.body.appendChild(loading);
-}
-
-// Keyboard navigation support
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        // Close mobile menu
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+// Enhanced form interaction
+document.addEventListener('DOMContentLoaded', () => {
+    const formInputs = document.querySelectorAll('.form-group input, .form-group select, .form-group textarea');
+    
+    formInputs.forEach(input => {
+        // Add focus effects
+        input.addEventListener('focus', () => {
+            input.parentElement.style.transform = 'translateY(-2px)';
+        });
         
-        // Close notifications
-        const notifications = document.querySelectorAll('.notification');
-        notifications.forEach(notification => {
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => notification.remove(), 300);
+        input.addEventListener('blur', () => {
+            input.parentElement.style.transform = 'translateY(0)';
+        });
+        
+        // Add character count for textarea
+        if (input.tagName === 'TEXTAREA') {
+            const charCount = document.createElement('div');
+            charCount.className = 'char-count';
+            charCount.style.cssText = `
+                font-size: 0.8rem;
+                color: #718096;
+                text-align: right;
+                margin-top: 0.25rem;
+            `;
+            input.parentElement.appendChild(charCount);
+            
+            input.addEventListener('input', () => {
+                const count = input.value.length;
+                const maxLength = input.getAttribute('maxlength') || 500;
+                charCount.textContent = `${count}/${maxLength}`;
+                
+                if (count > maxLength * 0.9) {
+                    charCount.style.color = '#ef4444';
+                } else {
+                    charCount.style.color = '#718096';
+                }
+            });
+        }
+    });
+});
+
+// Session time slot selection enhancement
+document.addEventListener('DOMContentLoaded', () => {
+    const timeSlotSelect = document.querySelector('#timeSlot');
+    if (timeSlotSelect) {
+        timeSlotSelect.addEventListener('change', () => {
+            const selectedOption = timeSlotSelect.options[timeSlotSelect.selectedIndex];
+            if (selectedOption.value) {
+                showNotification(`Selected session: ${selectedOption.text}`, 'info');
+            }
         });
     }
 });
 
-// Performance optimization: Debounce scroll events
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Apply debouncing to scroll events
-const debouncedScrollHandler = debounce(() => {
-    // Navbar background change
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
+// Mat requirement selection enhancement
+document.addEventListener('DOMContentLoaded', () => {
+    const matSelect = document.querySelector('#mat');
+    if (matSelect) {
+        matSelect.addEventListener('change', () => {
+            const selectedOption = matSelect.options[matSelect.selectedIndex];
+            if (selectedOption.value === 'need-provided') {
+                showNotification('We\'ll have a mat ready for you!', 'info');
+            }
+        });
     }
-    
-    // Parallax effect
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const rate = scrolled * -0.5;
-        hero.style.transform = `translateY(${rate}px)`;
+});
+
+// Smoothie bar selection enhancement
+document.addEventListener('DOMContentLoaded', () => {
+    const smoothieSelect = document.querySelector('#smoothie');
+    if (smoothieSelect) {
+        smoothieSelect.addEventListener('change', () => {
+            const selectedOption = smoothieSelect.options[smoothieSelect.selectedIndex];
+            if (selectedOption.value === 'yes') {
+                showNotification('Great! Don\'t forget to join us for the superfood smoothie bar at 3:00 PM!', 'info');
+            }
+        });
     }
-}, 10);
+});
 
-window.addEventListener('scroll', debouncedScrollHandler);
-
-// Service Worker registration for PWA capabilities
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .then(registration => {
-                console.log('SW registered: ', registration);
-            })
-            .catch(registrationError => {
-                console.log('SW registration failed: ', registrationError);
-            });
+// Add loading state to buttons
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            if (this.classList.contains('btn-primary')) {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            }
+        });
     });
-}
+});
 
-// Add meta theme color for mobile browsers
-const metaThemeColor = document.createElement('meta');
-metaThemeColor.name = 'theme-color';
-metaThemeColor.content = '#6366f1';
-document.head.appendChild(metaThemeColor);
+// Enhanced scroll animations
+const scrollAnimations = () => {
+    const elements = document.querySelectorAll('.session-card, .info-item, .stat');
+    elements.forEach((element, index) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }
+    });
+};
 
-console.log('EI-Post website loaded successfully! 🚀'); 
+// Initialize scroll animations
+window.addEventListener('scroll', scrollAnimations);
+document.addEventListener('DOMContentLoaded', scrollAnimations);
+
+// Add initial styles for scroll animations
+const style = document.createElement('style');
+style.textContent = `
+    .session-card, .info-item, .stat {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+    }
+`;
+document.head.appendChild(style); 

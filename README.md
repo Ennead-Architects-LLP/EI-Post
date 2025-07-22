@@ -1,113 +1,60 @@
-# Ennead Architects - Yoga Wellness Session
+# Ennead Architects - Sound Bath & Healing Session
 
-A modern, responsive landing page for Ennead Architects Yoga Wellness Session - Mind, Body & Soul. Built with HTML5, CSS3, and JavaScript, featuring beautiful animations, mobile-first design, and PWA capabilities. Includes session details, benefits, and a comprehensive signup form.
+A modern, responsive landing page for Ennead Architects Sound Bath & Healing Session - Inner Peace Begins. Built with HTML5, CSS3, and JavaScript, featuring elegant typography, beautiful animations, mobile-first design, and PWA capabilities. Includes session details, benefits, and a comprehensive RSVP form.
 
 ## 🌟 Features
 
-- **Modern Design**: Clean, professional design with gradient backgrounds and smooth animations
-- **Responsive Layout**: Fully responsive design that works on all devices
-- **Interactive Elements**: Smooth scrolling, hover effects, and button animations
-- **Mobile Navigation**: Hamburger menu for mobile devices
-- **Signup Form**: Comprehensive registration form with time slot selection
-- **Session Details**: Clear presentation of yoga session information
-- **PWA Ready**: Service worker and manifest for Progressive Web App capabilities
-- **Performance Optimized**: Debounced scroll events and optimized animations
-- **Accessibility**: Keyboard navigation and screen reader friendly
-- **SEO Optimized**: Proper meta tags and semantic HTML
-
-## 🚀 Live Demo
-
-Visit the live website: [Ennead Architects Yoga Wellness Session](https://ennead-architects-llp.github.io/EI-Post/)
-
-## 📁 Project Structure
-
-```
-EI-Post/
-├── index.html          # Main HTML file with yoga session content
-├── styles.css          # CSS styles and animations
-├── script.js           # JavaScript functionality with signup form
-├── sw.js              # Service worker for PWA
-├── manifest.json      # Web app manifest
-├── README.md          # Project documentation
-└── .gitignore         # Git ignore file
-```
-
-## 🛠️ Technologies Used
-
-- **HTML5**: Semantic markup and modern HTML features
-- **CSS3**: Flexbox, Grid, animations, and responsive design
-- **JavaScript (ES6+)**: Modern JavaScript with async/await
-- **Font Awesome**: Icons and visual elements
-- **Google Fonts**: Inter font family
-- **Service Worker**: Offline functionality and caching
+- **Elegant Design**: Sophisticated typography using Playfair Display and Cormorant Garamond fonts
+- **Sound Bath Session**: Complete information about the healing session
+- **Two Session Times**: 12:00 PM – 1:00 PM and 1:10 PM – 2:10 PM
+- **Superfood Smoothie Bar**: 3:00 PM – 4:00 PM refreshments
+- **RSVP Form**: Comprehensive registration with Google Sheets integration
+- **Responsive Design**: Optimized for all devices and screen sizes
+- **PWA Ready**: Progressive Web App with offline capabilities
+- **Smooth Animations**: Elegant transitions and floating elements
+- **Accessibility**: WCAG compliant design
 
 ## 🧘‍♀️ Session Features
 
 - **Session Details**: Clear presentation of date, time, and location
-- **Time Slot Selection**: Multiple time slots for participant convenience
-- **Experience Levels**: Accommodates beginners to advanced practitioners
-- **Special Requirements**: Space for health considerations and special needs
+- **Time Slot Selection**: Two available sessions for participant convenience
+- **Mat Requirements**: Option to bring your own mat or have HR provide one
+- **Superfood Smoothie Bar**: Post-session refreshments
 - **Comprehensive Form**: Complete registration with validation
+- **Google Sheets Integration**: Direct RSVP data collection
+
+## 📱 PWA Features
+
+- **Offline Support**: Works without internet connection
+- **Installable**: Can be installed as a native app
+- **App-like Experience**: Full-screen mode and native feel
+- **Caching**: Intelligent caching for better performance
 
 ## 🎨 Design Features
 
-- **Gradient Backgrounds**: Beautiful gradient combinations
-- **Floating Animations**: Smooth floating card animations
-- **Hover Effects**: Interactive hover states
-- **Smooth Transitions**: CSS transitions for all interactions
-- **Glass Morphism**: Modern glass-like effects
-- **Typography**: Clean, readable typography with Inter font
+- **Elegant Typography**: Playfair Display for headings, Cormorant Garamond for body text
+- **Calming Color Palette**: Forest greens and sage tones
+- **Glass Morphism**: Modern frosted glass effects
+- **Floating Animations**: Gentle floating cards and elements
+- **Smooth Transitions**: Elegant hover effects and animations
+- **Responsive Layout**: Adapts beautifully to all screen sizes
 
-## 🔧 Setup Instructions
+## 🚀 Quick Start
 
-### Prerequisites
-- A modern web browser
-- Git (for version control)
-- GitHub account (for hosting)
-
-### Local Development
-
-1. **Clone the repository**
+1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/EI-Post.git
+   git clone https://github.com/ennead-architects-llp/EI-Post.git
    cd EI-Post
    ```
 
-2. **Open in browser**
-   - Double-click `index.html` or
-   - Use a local server:
-     ```bash
-     # Using Python
-     python -m http.server 8000
-     
-     # Using Node.js
-     npx serve .
-     
-     # Using PHP
-     php -S localhost:8000
-     ```
+2. **Open the website**:
+   - Simply open `index.html` in your browser
+   - Or use a local server for the best experience
 
-3. **View the website**
-   - Open `http://localhost:8000` in your browser
-
-### GitHub Pages Deployment
-
-1. **Push to GitHub**
-   ```bash
-   git add .
-   git commit -m "Initial commit"
-   git push origin main
-   ```
-
-2. **Enable GitHub Pages**
-   - Go to your repository on GitHub
-   - Navigate to Settings > Pages
-   - Select "Deploy from a branch"
-   - Choose "main" branch and "/ (root)" folder
-   - Click "Save"
-
-3. **Access your site**
-   - Your site will be available at `https://your-username.github.io/EI-Post/`
+3. **Customize the content**:
+   - Edit `index.html` for session details
+   - Modify `styles.css` for styling
+   - Update `script.js` for functionality
 
 ## 📋 Customization
 
@@ -115,7 +62,6 @@ EI-Post/
 Update the session details in `index.html`:
 - Date and time
 - Location and venue
-- Pricing information
 - Session capacity
 - Contact information
 
@@ -123,26 +69,62 @@ Update the session details in `index.html`:
 The main color scheme can be modified in `styles.css`:
 ```css
 :root {
-    --primary-color: #6366f1;
-    --secondary-color: #8b5cf6;
-    --accent-color: #ffd700;
-    --text-color: #333;
-    --background-color: #f8fafc;
+    --primary-color: #2c5530;
+    --secondary-color: #4a7c59;
+    --accent-color: #8fbc8f;
+    --text-color: #2d3748;
+    --light-text: #718096;
+    --background-color: #fafafa;
 }
 ```
 
 ### Content
 - Update session details in `index.html`
-- Modify yoga session descriptions
+- Modify sound bath session descriptions
 - Change time slot options
 - Update contact information
 
-### Styling
-- Modify `styles.css` for design changes
-- Add new animations in CSS
-- Update responsive breakpoints
+## 📁 File Structure
 
-## 🔍 Browser Support
+```
+EI-Post/
+├── index.html          # Main HTML file with sound bath session content
+├── styles.css          # Elegant CSS styling with modern design
+├── script.js           # JavaScript functionality with enhanced interactions
+├── manifest.json       # PWA manifest file
+├── sw.js              # Service Worker for offline capabilities
+├── .nojekyll          # Disables Jekyll processing for GitHub Pages
+├── .github/
+│   └── workflows/
+│       └── deploy.yml  # GitHub Actions deployment workflow
+├── package.json        # Project metadata and scripts
+├── FORM_SETUP.md       # Form integration guide
+└── README.md           # This file
+```
+
+## 🌐 Live Website
+
+Visit the live website: [Ennead Architects Sound Bath & Healing Session](https://ennead-architects-llp.github.io/EI-Post/)
+
+## 📧 Contact Information
+
+- **Email**: info@enneadarchitects.com
+- **Phone**: +1 (555) 123-4567
+- **Location**: Ennead Architects Studio at bm, Downtown
+- **Website**: [Ennead Architects Sound Bath & Healing Session](https://ennead-architects-llp.github.io/EI-Post/)
+
+## 🛠️ Technologies Used
+
+- **HTML5**: Semantic markup and structure
+- **CSS3**: Modern styling with CSS Grid, Flexbox, and animations
+- **JavaScript (ES6+)**: Interactive functionality and form handling
+- **Google Fonts**: Playfair Display and Cormorant Garamond for elegant typography
+- **Font Awesome**: Beautiful icons
+- **PWA**: Progressive Web App capabilities
+- **GitHub Pages**: Hosting and deployment
+- **Google Sheets**: RSVP data collection
+
+## 📱 Browser Support
 
 - Chrome (latest)
 - Firefox (latest)
@@ -150,40 +132,41 @@ The main color scheme can be modified in `styles.css`:
 - Edge (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
 
-## 📊 Performance
+## ⚡ Performance
 
-- **Lighthouse Score**: 95+ (Performance, Accessibility, Best Practices, SEO)
-- **First Contentful Paint**: < 1.5s
-- **Largest Contentful Paint**: < 2.5s
-- **Cumulative Layout Shift**: < 0.1
+- **Fast Loading**: Optimized assets and minimal dependencies
+- **Responsive Images**: Efficient image handling
+- **Caching**: Intelligent caching strategies
+- **Minimal Bundle**: Lightweight and fast
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- [Font Awesome](https://fontawesome.com/) for icons
-- [Google Fonts](https://fonts.google.com/) for typography
-- [Inter Font](https://rsms.me/inter/) for the beautiful font family
-- [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) for layout
-- [CSS Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) for responsive design
+- **Ennead Architects**: For the beautiful sound bath healing session concept
+- **Google Fonts**: For the elegant typography
+- **Font Awesome**: For the beautiful icons
+- **GitHub Pages**: For reliable hosting
+- **Google Sheets**: For seamless RSVP data collection
 
-## 📞 Contact
+## 🔄 Updates
 
-- **Email**: info@enneadarchitects.com
-- **Phone**: +1 (555) 123-4567
-- **Location**: Ennead Architects Studio at bm, 123 Wellness Street, Downtown
-- **Website**: [Ennead Architects Yoga Wellness Session](https://ennead-architects-llp.github.io/EI-Post/)
+- **Latest Update**: Transformed from Yoga Wellness to Sound Bath & Healing Session
+- **Design Enhancement**: Added elegant typography and sophisticated color palette
+- **Content Update**: Updated to reflect August 12, 2025 session with two time slots
+- **Form Integration**: Connected RSVP form to Google Sheets for data collection
+- **PWA Enhancement**: Updated manifest and icons for sound bath theme
 
 ---
 
-Made with ❤️ for modern web development
+**Ennead Architects at bm** - Transforming lives through the ancient practice of sound healing. Join us on a journey to wellness and inner peace.
