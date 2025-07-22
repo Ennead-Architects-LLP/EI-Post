@@ -152,6 +152,27 @@ body {
     font-size: 1.1rem;
 }
 
+.price-highlight {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(139, 92, 246, 0.2)) !important;
+    border: 2px solid rgba(102, 126, 234, 0.3) !important;
+    transform: scale(1.05);
+}
+
+.price-highlight i {
+    color: #667eea !important;
+    font-size: 1.8rem !important;
+}
+
+.price-highlight span {
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+}
+
+.price-highlight strong {
+    color: #667eea;
+    font-size: 1.4rem;
+}
+
 .hero::before {
     content: '';
     position: absolute;
@@ -246,6 +267,31 @@ body {
     background: #667eea;
     color: white;
     transform: translateY(-2px);
+}
+
+.price-callout {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.price-tag {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #667eea;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.price-text {
+    font-size: 1rem;
+    color: #2d3748;
+    font-weight: 500;
 }
 
 /* Hero Image/Animation */
@@ -533,6 +579,25 @@ body {
 .form-group select {
     background: white;
     cursor: pointer;
+}
+
+.price-info {
+    background: linear-gradient(135deg, rgba(168, 237, 234, 0.1), rgba(254, 214, 227, 0.1)) !important;
+    border: 2px solid rgba(102, 126, 234, 0.2) !important;
+}
+
+.price-info i {
+    color: #667eea !important;
+    font-size: 1.8rem !important;
+}
+
+.price-info h3 {
+    color: #667eea !important;
+}
+
+.price-info strong {
+    color: #667eea;
+    font-size: 1.3rem;
 }
 
 /* Footer */
