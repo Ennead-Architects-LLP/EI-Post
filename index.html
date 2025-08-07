@@ -107,6 +107,25 @@
         </div>
     </nav>
 
+    <!-- Event Full Announcement -->
+    <div class="announcement-banner">
+        <div class="announcement-container">
+            <div class="announcement-content">
+                <div class="announcement-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <div class="announcement-text">
+                    <h2 class="announcement-title">Event Full!</h2>
+                    <p class="announcement-message">Thank you for your overwhelming response. All sessions are now fully booked.</p>
+                    <p class="announcement-date">See you on <strong>Wednesday, August 13, 2025</strong></p>
+                </div>
+                <div class="announcement-decoration">
+                    <div class="pulse-dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <main>
         <section id="home" class="hero">
@@ -151,7 +170,7 @@
                     </div>
                 </div>
                 <div class="hero-buttons">
-                    <a href="#signup" class="btn btn-primary">RSVP Now</a>
+                    <button class="btn btn-disabled" disabled>Registration Closed</button>
                 </div>
             </div>
         </div>
@@ -222,9 +241,22 @@
     <!-- Signup Section -->
     <section id="signup" class="signup">
         <div class="container">
-            <h2 class="section-title">RSVP for Your Session</h2>
+            <h2 class="section-title">Registration Closed</h2>
             <div class="signup-content">
-                <form class="signup-form" id="rsvpForm" action="#" method="POST">
+                <div class="registration-closed">
+                    <div class="closed-icon">
+                        <i class="fas fa-calendar-times"></i>
+                    </div>
+                    <h3>Event Full</h3>
+                    <p>Thank you for your overwhelming response! All sessions are now fully booked.</p>
+                    <p class="event-date">See you on <strong>Wednesday, August 13, 2025</strong></p>
+                    <div class="contact-info">
+                        <p>For any questions, please contact:</p>
+                        <p><strong>Morales, Wilmarie</strong><br>Department of Happiness</p>
+                    </div>
+                </div>
+                <!-- Original form hidden since event is full -->
+                <form class="signup-form hidden" id="rsvpForm" action="#" method="POST">
                     <h3>Registration Form</h3>
                     <div class="form-group">
                         <label for="entry.1874270200">Full Name *</label>
